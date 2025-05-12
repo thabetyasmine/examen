@@ -1,0 +1,10 @@
+
+<h1>Liste des produits</h1>
+
+{% for produit in produits %}
+  <details>
+    <summary>{{ produit.nom }} - {{ produit.prix }} €</summary>
+    <p>{{ produit.description }}</p>
+    <p>Ajouté le {{ produit.dateAjout|date('d/m/Y') }}</p>
+  </details>
+{% endfor %}

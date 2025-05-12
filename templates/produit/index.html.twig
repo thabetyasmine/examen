@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Liste des Produits{% endblock %}
+
+{% block body %}
+<h1>📦 Liste des Produits</h1>
+
+{% if produits is not empty %}
+    {% for produit in produits %}
+        <details style="margin-bottom: 1em; padding: 1em; border: 1px solid #ccc; border-radius: 8px;">
+            <summary style="font-weight: bold; font-size: 1.2em;">
+                {{ produit.nom }} - {{ produit.prix }} €
+            </summary>
+            <p><strong>Description :</strong> {{ produit.description }}</p>
+            <p><strong>Ajouté le :</strong> {{ produit.dateAjout|date('d/m/Y') }}</p>
+        </details>
+    {% endfor %}
+{% else %}
+    <p>Aucun produit enregistré pour le moment.</p>
+{% endif %}
+{% endblock %}
